@@ -25,9 +25,13 @@ console.log(result3);   // true
 
 function mySome(array, cb) {
     // Your code here
-    for(let banana of array) {
-        let num = banana;
-    }
+    array.forEach(function(banana, index) {
+if (cb(banana, index)) {
+    return true
+}
+    });
+    
+    return false;
 }
 let result1 = mySome([5, 1, 7, 9], function(ele, i) {
     return ele === i;
