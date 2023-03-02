@@ -25,12 +25,14 @@ console.log(result3);   // true
 
 function mySome(array, cb) {
     // Your code here
-    array.forEach(function(banana, index) {
-if (cb(banana, index)) {
-    return true
-}
-    });
-    
+    // let i = 0;
+    for(let i in array) {
+        console.log(typeof array[i],typeof i);
+        if(cb(array[i], parseInt(i))) {
+            return true;
+        }
+        // i++;
+    }
     return false;
 }
 let result1 = mySome([5, 1, 7, 9], function(ele, i) {
